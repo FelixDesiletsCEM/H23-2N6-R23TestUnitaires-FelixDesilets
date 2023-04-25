@@ -143,52 +143,59 @@ namespace Thermostat.Tests
         /// <summary>
         /// TODO 06 : Tester le constructeur à un seul paramètre avec une valeur valide
         /// </summary>
-    
+        [TestMethod()]
         public void ConstrAvecParamCasTempInitRetourTempInitTest()
         {
             // À Compléter
             // ....
-
+            Thermostat objThermostat = new Thermostat(22);
 
         }
         /// <summary>
         /// TODO 07 : Tester le constructeur à un seul paramètre avec la température minimale
         /// </summary>
-      
+        [TestMethod()]
         public void ConstrAvecParamCasAuLimiteMinRetourLimiteMinTest()
         {
             // À Compléter
             // ....
-
+            Thermostat objThermostat = new Thermostat(Thermostat.MIN_TEMPERATURE);
+            Assert.AreEqual(Thermostat.MIN_TEMPERATURE, objThermostat.Temperature);
         }
         /// <summary>
         /// TODO 08 : Tester le constructeur à un seul paramètre avec la température maximale
         /// </summary>
-   
+        [TestMethod()]
         public void ConstrAvecParamCasAuLimiteMaxRetourLimiteMaxTest()
         {
 
             // À Compléter
             // ....
-
+            Thermostat objThermostat = new Thermostat(Thermostat.MAX_TEMPERATURE);
+            Assert.AreEqual(Thermostat.MAX_TEMPERATURE, objThermostat.Temperature);
         }
         /// <summary>
         /// TODO 09 : Tester le constructeur à un seul paramètre avec une température en dessous de la température minimale
         /// Dans ce cas, le comportement normal ici est de lever une exception de type ArgumentOutOfRangeException
-         /// </summary>
+        /// </summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ConstrAvecParamCasHorsLimiteMinMoinsUnRetourExceptionTest()
         {
-            
+            Thermostat objThermostat = new Thermostat(Thermostat.MIN_TEMPERATURE - 1);
         }
         /// <summary>
         /// TODO 10 : Tester le constructeur à un seul paramètre avec une température au dessus de la température maximale
         /// Dans ce cas, le comportement normal ici est de lever une exception de type ArgumentOutOfRangeException
         /// </summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void ConstrAvecParamCasHorsLimiteMaxPlusUnRetourExceptionTest()
         {
 
             // À Compléter
             // ....
+            Thermostat objThermostat = new Thermostat(Thermostat.MAX_TEMPERATURE + 1);
         }
         #endregion
 
