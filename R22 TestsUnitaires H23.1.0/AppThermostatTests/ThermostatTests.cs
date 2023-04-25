@@ -73,7 +73,9 @@ namespace Thermostat.Tests
         {
             // À Compléter
             // ....
-
+            Thermostat objThermostat = new Thermostat();
+            objThermostat.Temperature = 15;
+            Assert.AreEqual(15, objThermostat.Temperature);
 
 
         }
@@ -83,9 +85,11 @@ namespace Thermostat.Tests
       
         public void TemperatureSetCasAuLimiteMinRetourLimiteMinTest()
         {
-           // À Compléter
-           // ....
-
+            // À Compléter
+            // ....
+            Thermostat objThermostat = new Thermostat();
+            objThermostat.Temperature = Thermostat.MIN_TEMPERATURE;
+            Assert.AreEqual(Thermostat.MIN_TEMPERATURE, objThermostat.Temperature);
 
         }
         /// <summary>
@@ -96,7 +100,9 @@ namespace Thermostat.Tests
         {
             // À Compléter
             // ....
-
+            Thermostat objThermostat = new Thermostat();
+            objThermostat.Temperature = Thermostat.MAX_TEMPERATURE;
+            Assert.AreEqual(Thermostat.MAX_TEMPERATURE, objThermostat.Temperature);
 
         }
         /// <summary>
@@ -104,14 +110,15 @@ namespace Thermostat.Tests
         /// Dans ce cas, le comportement normal de  l'accesseur SET  est de lever une exception de type ArgumentOutOfRangeException
         /// La vérification de ce comportement sera assurée par l'annotation [ExpectedException(typeof(ArgumentOutOfRangeException))]
         /// </summary>
-        //[TestMethod()]
-        //[ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TemperatureSetCasHorsLimiteMinMoinsUnRetourExceptionTest()
         {
 
             // À Compléter
             // ....
-
+            Thermostat objThermostat = new Thermostat();
+            objThermostat.Temperature = Thermostat.MIN_TEMPERATURE - 1;
 
             // Auditer (Assert)
             // ArgumentOutOfRangeException attendue intercepté au niveau de l'annotation  [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -121,13 +128,15 @@ namespace Thermostat.Tests
         /// TODO 05 : Tester  l'accesseur SET avec une température au dessus de la température maximale
         /// Dans ce cas, le comprtement normal de l'accesseur SET  est de lever une exception de type ArgumentOutOfRangeException
         /// </summary>
-       
 
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TemperatureSetCasHorsLimiteMaxPlusUnRetourExceptionTest()
         {
             // À Compléter
             // ....
-
+            Thermostat objThermostat = new Thermostat();
+            objThermostat.Temperature = Thermostat.MAX_TEMPERATURE + 1;
         }
         #endregion
         #region TESTS CONSTRUCTEUR AVEC PARAMÈTRE
