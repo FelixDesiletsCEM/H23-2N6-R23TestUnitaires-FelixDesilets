@@ -204,9 +204,6 @@ namespace Thermostat.Tests
         // TODO 11 : Identifier 3 cas de tests pour la méthode AugmenterTemperature et définir les méthodes de tests nécessaires
         // À Compléter
         // .... 
-<<<<<<< Updated upstream
-
-=======
         [TestMethod()]
         [ExpectedException(typeof(InvalidOperationException))]
         public void DépassePasLimiteSuppérieur()
@@ -230,14 +227,36 @@ namespace Thermostat.Tests
             objThermostat.AugmenterTemperature();
             Assert.AreEqual(Thermostat.TEMPERATURE_INITIALE + 1, objThermostat.Temperature);
         }
->>>>>>> Stashed changes
         #endregion
         #region TESTS MÉTHODE DiminuerTemperature
         // TODO 12 : Identifier 3 cas de tests pour la méthode DiminuerTemperature et définir les méthodes de tests nécessaires
         // À Compléter
         // .... 
+        [TestMethod()]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void DépassePasLimiteInférieur()
+        {
+            Thermostat objThermostat = new Thermostat(Thermostat.MIN_TEMPERATURE);
+            objThermostat.DiminuerTemperature();
+        }
+
+        [TestMethod()]
+        public void AtteintLimiteInférieur()
+        {
+            Thermostat objThermostat = new Thermostat(Thermostat.MIN_TEMPERATURE + 1);
+            objThermostat.DiminuerTemperature();
+            Assert.AreEqual(Thermostat.MIN_TEMPERATURE, objThermostat.Temperature);
+        }
+
+        [TestMethod()]
+        public void DiminuerTemperature()
+        {
+            Thermostat objThermostat = new Thermostat();
+            objThermostat.DiminuerTemperature();
+            Assert.AreEqual(Thermostat.TEMPERATURE_INITIALE - 1, objThermostat.Temperature);
+        }
         #endregion
 
-        
+
     }
 }
